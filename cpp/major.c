@@ -12,3 +12,10 @@
 <limits.h>	整数类型限制	INT_MAX, INT_MIN, CHAR_BIT
 <float.h>	浮点类型限制	FLT_MAX, DBL_MIN, FLT_EPSILON
 */
+#include <stdio.h>
+
+int main() {
+    int num = 2;
+    printf("%d\n", num);
+    return 0;
+}
