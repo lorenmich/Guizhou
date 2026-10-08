@@ -1,0 +1,23 @@
+# C++ 编译生成的可执行文件 (Windows/Linux/Mac)
+*.exe
+*.out
+*.app
+
+# C++ 编译中间文件 (目标文件)
+*.o
+*.obj
+*.a
+*.lib
+*.so
+*.dll
+
+# 编译产生的构建目录 (如果以后用 CMake)
+build/
+cmake-build-debug/
+CMakeFiles/
+
+# VS Code 个人配置
+.vscode/
+
+# 调试生成的 dump 文件
+*.dSYM/
