@@ -1,10 +1,6 @@
 #include <iostream>
 #include <cstdio>
-
-void print_menu();   // 主菜单
-int input_subject(); // 输入科目
-int input_minutes(); // 输入学习分钟数
-int input_choice();  // 输入选择
+#include "do.h"
 
 int main()
 {
@@ -70,43 +66,4 @@ void print_menu()
     std::cout << "0. Exit" << std::endl
               << std::endl;
     std::cout << "Enter your choice: ";
-}
-
-int input_minutes()
-{
-    int minutes;
-    while (true)
-    {
-        std::cout << "Enter study time in minutes (1-240):";
-        std::cin >> minutes;
-        if (minutes >= 1 && minutes <= 240)
-        {
-            break; // 输入有效，退出循环
-        }
-    std::cout << "Invalid input. Please enter a value between 1 and 240." << std::endl;
-    // 如果输入无效，提示用户重新输入
-    }
-    return minutes;
-}
-
-int input_subject()
-{   
-    int subject;
-    while (true){
-        std::cout << "Select subject (1: C, 2: Python, 3: Math, 4: English): ";
-        std::cin >> subject;
-        if (subject >= 1 && subject <= 4)
-        {
-            break; // 输入有效，退出循环
-        }
-        std::cout << "Invalid input. Please enter a value between 1 and 4." << std::endl;
-    } 
-    return subject;
-}
-
-int input_choice()
-{
-        int choice;
-        std::cin >> choice;
-        return choice;
 }
