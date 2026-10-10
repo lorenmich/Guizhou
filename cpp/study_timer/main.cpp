@@ -62,8 +62,13 @@ void print_menu() {
 
 int input_minutes() {
     int minutes;
-    std::cout << "Enter study time in minutes: ";
+    flag:
+    std::cout << "Enter study time in minutes (1-240):";
     std::cin >> minutes;
+    if (minutes < 1 || minutes > 240) {
+        std::cout << "Invalid input. Please enter a value between 1 and 240." << std::endl;
+        goto flag;
+    }
     return minutes;
 }
 
