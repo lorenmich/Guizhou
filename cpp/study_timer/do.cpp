@@ -74,6 +74,7 @@ int input_choice()
         else
         {
             std::cout << "WRONG input type! Please enter an integer value." << std::endl;
+            reset_input(); // 清除输入缓冲区中的多余字符
             continue; // 跳过循环剩余部分并再次提示输入
         }
     }
