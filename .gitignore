@@ -21,3 +21,7 @@ CMakeFiles/
 
 # 调试生成的 dump 文件
 *.dSYM/
+
+.vscode/
+cpp/.vscode
+.gitignore
