@@ -24,4 +24,5 @@ CMakeFiles/
 
 .vscode/
 cpp/.vscode
+main
 .gitignore
