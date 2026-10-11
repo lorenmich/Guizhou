@@ -100,17 +100,28 @@ void print_menu()
     std::cout << "Enter your choice: ";
 }
 
-void do_record(int (*p)[4])
+void do_record(struct Subject * ptr[4], int n, int t1, int t2)
 {
     std::ofstream t("Recording.txt");
     // 打开或创建文件Recording.txt
     if(t.is_open())
     {
-        for (int i=0; i < sizeof(*p) / sizeof((*p)[0]); i++)
+        for (int i=0; i < n; i++)
         {
-            t << *p[i] << "\n";
+            t << "学科名称：" << (*ptr[i]).subject_name << "\n"
+            << "学习次数：" <<(*ptr[i]).study_times << "\n"
+            << "学习总时长：" << (*ptr[i]).total_duration << "\n" << "每次学习时长：";
+            for(int k=0; k < 50;  k++)
+            {
+                if ((*ptr[i]).study_duration[k] == 0)
+                {break;}
+                t << "第"<< k+1 << "次：" << (*ptr[i]).study_duration[k] << "\t";
+            }
+            t << "\n" << std::endl;
         }
-    t.close();
+        t << std::endl;
+        t << "总学习时长：" << t1 << "minutes\n总学习次数：" << t2 << "次" << std::endl;
+        t.close();
     }
     else
     {
