@@ -1,4 +1,6 @@
 #include <iostream>
+#include <fstream>
+#include <string>
 #include "do.h"
 
 int input_minutes()
@@ -85,4 +87,33 @@ void reset_input()
 {
     std::cin.clear(); // 清除错误标志
     std::cin.ignore(1000, '\n'); // 忽略输入缓冲区中的多余字符
+}
+
+void print_menu()
+{
+    std::cout << "*************************" << std::endl;
+    std::cout << "Study Timer System Menu" << std::endl;
+    std::cout << "1. add study record" << std::endl;
+    std::cout << "2. view study records" << std::endl;
+    std::cout << "0. Exit" << std::endl
+              << std::endl;
+    std::cout << "Enter your choice: ";
+}
+
+void do_record(int (*p)[4])
+{
+    std::ofstream t("Recording.txt");
+    // 打开或创建文件Recording.txt
+    if(t.is_open())
+    {
+        for (int i=0; i < sizeof(*p) / sizeof((*p)[0]); i++)
+        {
+            t << *p[i] << "\n";
+        }
+    t.close();
+    }
+    else
+    {
+        std::cout << "ERROR: Opening File Failed!\n";
+    }
 }

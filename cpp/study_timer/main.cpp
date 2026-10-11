@@ -5,7 +5,9 @@
 int main()
 {
     int subject_time[4] = {0}; // 将所有元素初始化为 0
+    int (*arrtime)[sizeof(subject_time) / sizeof(subject_time[0])] = &subject_time; //记录时间数组的地址并赋值给指针arrtime
     int valid_records = 0; // 有效记录数
+    
     while (true)
     {
         // 显示菜单并获取用户选择
@@ -19,9 +21,9 @@ int main()
                       << "*************************" << std::endl;
             break;
         }
-
+        // 在此添加学习记录
         if (choice == 1)
-        {   // 在此添加学习记录
+        {
             std::cout << "You selected option 1: add study record" << std::endl;
 
             // 选择科目
@@ -34,8 +36,9 @@ int main()
             subject_time[subject - 1] += minutes;
             valid_records++;
         }
+        // 在此查看学习记录
         else if (choice == 2)
-        {   // 在此查看学习记录
+        {   
             std::cout << "You selected option 2: view study records" << std::endl;
             int subject = input_subject(); int total_time = 0;
             std::cout << "Total study time for subject " << subject << ": " << subject_time[subject - 1] << " minutes" << std::endl;
@@ -46,24 +49,14 @@ int main()
             std::cout << "Total study time for all subjects: " << total_time << " minutes" << std::endl;
             std::cout << "Total valid records: " << valid_records << std::endl;
         }
+        // 跳过循环剩余部分并再次提示输入
         else
         {
             std::cout << "Invalid choice. Please try again." << std::endl;
             continue;
-            // 跳过循环剩余部分并再次提示输入
         }
     }
+    do_record(arrtime);
 
     return 0;
-}
-
-void print_menu()
-{
-    std::cout << "*************************" << std::endl;
-    std::cout << "Study Timer System Menu" << std::endl;
-    std::cout << "1. add study record" << std::endl;
-    std::cout << "2. view study records" << std::endl;
-    std::cout << "0. Exit" << std::endl
-              << std::endl;
-    std::cout << "Enter your choice: ";
 }
